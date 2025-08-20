@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Discussion at Watson Road Veterinary Clinic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e6f1f4; /* Light, calming blue */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1rem;
+            text-align: center;
+        }
+        .game-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            padding: 2.5rem;
+            border: 3px solid #005a8d; /* Deep blue from a clinic logo */
+        }
+        .btn {
+            @apply bg-blue-600 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-400 cursor-pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+        }
+        .paw-print {
+            color: #005a8d;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        .dialogue-text {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .title {
+            color: #1e3a8a;
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .name-input {
+            @apply w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-blue-500 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-colors duration-200;
+        }
+    </style>
+</head>
+<body>
+
+<div id="game-container" class="game-container">
+    <!-- Game content will be rendered here by JavaScript -->
+</div>
+
+<script>
+    const gameContainer = document.getElementById('game-container');
+    let playerName = '';
+    let lossCount = 0;
+
+    const gameData = {
+        name_input: {
+            title: "Welcome to Watson Road Veterinary Clinic",
+            text: "You are a staff member. Enter your name and prepare for a discussion with your manager, Nate.",
+            input: true,
+            choices: [
+                { text: "Enter Clinic", next: "start" }
+            ]
+        },
+        start: {
+            title: "A Discussion at the Clinic",
+            text: "Hello, {playerName}. You have a legitimate grievance you want to bring up. What's the topic?",
+            choices: [
+                { text: "My schedule is unfair.", next: "schedule_1" },
+                { text: "I disagree with the new patient protocol.", next: "protocol_1" },
+                { text: "I need a raise.", next: "raise_1" },
+                { text: "We need to talk about my coworker.", next: "coworker_1" }
+            ]
+        },
+        // --- SCHEDULE BRANCH ---
+        schedule_1: {
+            text: "Nate leans back in his chair. 'The schedule is based on clinic needs, not personal preferences. This is a business, not a hobby. What is your specific complaint?'",
+            choices: [
+                { text: "I always get stuck with the closing shift.", next: "schedule_2a" },
+                { text: "I'm doing more work than everyone else.", next: "schedule_2b" }
+            ]
+        },
+        schedule_2a: {
+            text: "Nate gestures to a chart on his wall. 'Closing shifts are assigned on a rotating roster. It seems you simply don't like when your turn comes up. What part of that is unclear?'",
+            choices: [
+                { text: "But I have personal commitments in the evening.", next: "schedule_3a" },
+                { text: "That doesn't feel very 'fair' to me.", next: "schedule_3b" }
+            ]
+        },
+        schedule_2b: {
+            text: "Nate sighs. 'Our time-tracking software shows everyone is working the same number of hours. If you feel you're working 'harder,' that sounds like a personal efficiency problem. Is there a point here?'",
+            choices: [
+                { text: "It's about the type of work, not the hours!", next: "schedule_3c" },
+                { text: "I just need a break sometimes.", next: "schedule_3d" }
+            ]
+        },
+        schedule_3a: {
+            text: "Nate's expression hardens. 'This is a business, not a hobby. Your personal life is not my responsibility. My job is to ensure the clinic runs. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        schedule_3b: {
+            text: "Nate scoffs. 'Fairness is a consistent schedule based on business needs. Your personal feelings do not change the definition of fairness. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        schedule_3c: {
+            text: "Nate taps his temple. 'The type of work is also tracked. If you have an issue with your job description, we can discuss finding a new role that better suits your abilities, like 'unemployed.' Just accept that Nate is right.'",
+            isEnd: true
+        },
+        schedule_3d: {
+            text: "Nate holds up a hand. 'Everyone needs a break. The schedule includes a break. Your feeling that you 'need' more is not a valid business concern. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        // --- PROTOCOL BRANCH ---
+        protocol_1: {
+            text: "Nate stares at you, unblinking. 'The protocol was developed by a team of experts, including myself. It's the most efficient way to maximize patient throughput and ensure the highest standard of care within budget. What is your specific issue?'",
+            choices: [
+                { text: "It's too rushed, we're making mistakes.", next: "protocol_2a" },
+                { text: "It seems to be causing patient distress.", next: "protocol_2b" }
+            ]
+        },
+        protocol_2a: {
+            text: "Nate pulls out a tablet. 'The error rate has decreased by 2% since implementation. It sounds like you are still getting up to speed. What part of the protocol is confusing you?'",
+            choices: [
+                { text: "It's not confusing, it's dangerous!", next: "protocol_3a" },
+                { text: "I'm worried about liability.", next: "protocol_3b" }
+            ]
+        },
+        protocol_2b: {
+            text: "Nate looks unimpressed. 'Patient distress is a natural byproduct of medical procedures. We cannot compromise efficiency for an animal's temporary discomfort. Are you suggesting we prioritize emotional labor over time-sensitive procedures?'",
+            choices: [
+                { text: "But that's not what's best for the animals.", next: "protocol_3c" },
+                { text: "We need to be more humane.", next: "protocol_3d" }
+            ]
+        },
+        protocol_3a: {
+            text: "Nate's eyes narrow. 'Dangerous? The legal department has already signed off. If you feel this way, you are welcome to find a clinic that better suits your personal feelings. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        protocol_3b: {
+            text: "Nate laughs. 'Liability is a matter for the lawyers. You are a technician, not a legal expert. Focus on your job. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        protocol_3c: {
+            text: "Nate shakes his head slowly. 'What is 'best' is a subjective opinion. The protocol is what is best for the clinic's long-term sustainability. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        protocol_3d: {
+            text: "Nate leans forward. 'Humane? Are you suggesting the current protocol is inhumane? That's a serious accusation. Is there anything else you'd like to say before we document this conversation? Just accept that Nate is right.'",
+            isEnd: true
+        },
+        // --- RAISE BRANCH ---
+        raise_1: {
+            text: "Nate lets out a short, humorless laugh. 'Raises are based on performance metrics that you have not met. The company's financial model is sound, and your compensation is fair according to industry standards. What makes you think you deserve a raise?'",
+            choices: [
+                { text: "My years of experience and dedication.", next: "raise_2a" },
+                { text: "The cost of living has gone up.", next: "raise_2b" }
+            ]
+        },
+        raise_2a: {
+            text: "Nate points to a file. 'Experience and dedication are requirements of the job, not reasons for a raise. Your performance review shows an average output. Are you claiming your metrics are wrong?'",
+            choices: [
+                { text: "I'm performing at a high level!", next: "raise_3a" },
+                { text: "Performance metrics don't show everything.", next: "raise_3b" }
+            ]
+        },
+        raise_2b: {
+            text: "Nate shrugs. 'The cost of living is a macroeconomic issue, not a business concern. Our compensation is based on your job function, not your personal financial situation. Do you have a business-related reason for this conversation?'",
+            choices: [
+                { text: "It's about fair compensation for my work.", next: "raise_3c" },
+                { text: "Other clinics are paying more.", next: "raise_3d" }
+            ]
+        },
+        raise_3a: {
+            text: "Nate shakes his head. 'The numbers show you are incorrect. The numbers do not lie. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        raise_3b: {
+            text: "Nate leans back. 'The metrics show everything that is relevant to your pay. Everything else is irrelevant. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        raise_3c: {
+            text: "Nate looks at you with a blank expression. 'Fairness is subjective. Your compensation is fair based on the market. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        raise_3d: {
+            text: "Nate smiles thinly. 'Then feel free to apply at one of those clinics. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        // --- COWORKER BRANCH ---
+        coworker_1: {
+            text: "Nate signs a document without looking up. 'The issue with your coworker is a personal matter. I'm not a mediator. This clinic is a professional environment, and I expect you to resolve this on your own. What is the specific issue?'",
+            choices: [
+                { text: "They are lazy and I'm picking up their slack.", next: "coworker_2a" },
+                { text: "They are creating a toxic work environment.", next: "coworker_2b" }
+            ]
+        },
+        coworker_2a: {
+            text: "Nate doesn't look up from his work. 'Slack? Your job is to complete your assigned tasks. If you feel you have time to take on more work, that suggests you are underutilized. Are you requesting more work?'",
+            choices: [
+                { text: "No, I'm saying they need to do their job!", next: "coworker_3a" },
+                { text: "I'm just trying to make the clinic run smoothly.", next: "coworker_3b" }
+            ]
+        },
+        coworker_2b: {
+            text: "Nate finally looks up at you. 'Toxic? That's a subjective word. Is there a specific policy violation you can point to?'",
+            choices: [
+                { text: "They make rude comments constantly.", next: "coworker_3c" },
+                { text: "It's just a negative overall atmosphere.", next: "coworker_3d" }
+            ]
+        },
+        coworker_3a: {
+            text: "Nate sighs. 'Your coworker's productivity is my concern, not yours. Your job is to complete your tasks. If you are not doing that, we will have another conversation. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        coworker_3b: {
+            text: "Nate nods slowly. 'Thank you for your dedication. If the clinic is running smoothly, then there is no issue. Just accept that Nate is right.'",
+            isEnd: true
+        },
+        coworker_3c: {
+            text: "Nate leans back. 'Rude comments? I will consider this when a formal HR complaint is filed. Is that what you are doing now?' Just accept that Nate is right.'",
+            isEnd: true
+        },
+        coworker_3d: {
+            text: "Nate shakes his head. 'Negative atmosphere? I run a business, not a social club. If you are unhappy, you are free to find another atmosphere. Just accept that Nate is right.'",
+            isEnd: true
+        },
+    };
+
+    /**
+     * Renders a new game screen based on the provided screen name.
+     * @param {string} screenName The name of the screen from the gameData object.
+     */
+    function renderScreen(screenName) {
+        const screen = gameData[screenName];
+        let html = '';
+
+        if (screenName === 'name_input') {
+            html += `<div class="paw-print">🐾</div>`;
+            html += `<h1 class="title">${screen.title}</h1>`;
+            html += `<p class="dialogue-text">${screen.text}</p>`;
+            html += `<input type="text" id="playerNameInput" class="name-input" placeholder="Your Name" />`;
+            html += `<button class="btn mt-4" onclick="handleChoice('start')">${screen.choices[0].text}</button>`;
+        } else if (screen.isEnd) {
+            // Check for end screen
+            lossCount++;
+            html += `<div class="paw-print">🐾</div>`;
+            html += `<h1 class="title">The Final Word</h1>`;
+            html += `<p class="dialogue-text">${screen.text.replace('{playerName}', playerName)}</p>`;
+            html += `<div class="text-gray-500 font-bold mt-4">Arguments Lost: ${lossCount}</div>`;
+            html += `<button class="btn mt-4" onclick="handleChoice('start')">Try Again</button>`;
+        } else {
+            // Handle regular game screens
+            html += `<div class="paw-print">🐾</div>`;
+            html += `<h1 class="title">${screen.title || gameData.start.title}</h1>`;
+            html += `<p class="dialogue-text">${screen.text.replace('{playerName}', playerName)}</p>`;
+            html += `<div class="flex flex-col space-y-4">`;
+            screen.choices.forEach(choice => {
+                html += `<button class="btn" onclick="handleChoice('${choice.next}')">${choice.text}</button>`;
+            });
+            html += `</div>`;
+        }
+        
+        gameContainer.innerHTML = html;
+        if (screenName === 'name_input') {
+            document.getElementById('playerNameInput').focus();
+        }
+    }
+
+    /**
+     * Handles the player's choice by rendering the next screen.
+     * @param {string} choiceId The ID of the next screen to load.
+     */
+    function handleChoice(choiceId) {
+        if (choiceId === 'start') {
+            const input = document.getElementById('playerNameInput');
+            if (input) {
+                playerName = input.value || 'Player'; // Use 'Player' as a fallback
+            }
+        }
+        renderScreen(choiceId);
+    }
+
+    // Start the game by rendering the initial screen when the window loads
+    window.onload = function() {
+        renderScreen('name_input');
+    };
+
+</script>
+
+</body>
+</html>
