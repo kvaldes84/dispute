@@ -90,7 +90,8 @@
             text: "Nate leans back in his chair. 'The schedule is based on clinic needs, not personal preferences. This is a business, not a hobby. What is your specific complaint?'",
             choices: [
                 { text: "I always get stuck with the closing shift.", next: "schedule_2a" },
-                { text: "I'm doing more work than everyone else.", next: "schedule_2b" }
+                { text: "The current system doesn't account for individual needs.", next: "schedule_2b" },
+                { text: "The rotations are not evenly distributed among staff.", next: "schedule_2c" }
             ]
         },
         schedule_2a: {
@@ -101,27 +102,42 @@
             ]
         },
         schedule_2b: {
-            text: "Nate sighs. 'Our time-tracking software shows everyone is working the same number of hours. If you feel you're working 'harder,' that sounds like a personal efficiency problem. Is there a point here?'",
+            text: "Nate points to the clock. 'Individual needs are not a factor in a schedule built for a 24/7 business operation. What is your business-related reason for this discussion?'",
             choices: [
-                { text: "It's about the type of work, not the hours!", next: "schedule_3c" },
-                { text: "I just need a break sometimes.", next: "schedule_3d" }
+                { text: "Flexible scheduling increases morale and productivity.", next: "schedule_3c" },
+                { text: "Other clinics offer more flexible scheduling.", next: "schedule_3d" }
+            ]
+        },
+        schedule_2c: {
+            text: "Nate pulls up a spreadsheet. 'The data shows an even distribution of all shifts over a six-month period. If you feel it's uneven, I can show you the raw data. Is there a discrepancy you've found?'",
+            choices: [
+                { text: "It's about the type of work, not the hours!", next: "schedule_3e" },
+                { text: "I feel like I'm doing more work than everyone else.", next: "schedule_3f" }
             ]
         },
         schedule_3a: {
-            text: "Nate's expression hardens. 'This is a business, not a hobby. Your personal life is not my responsibility. My job is to ensure the clinic runs. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate's expression hardens. 'This is a business, not a hobby. Your personal life is not my responsibility. My job is to ensure the clinic runs.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3b: {
-            text: "Nate scoffs. 'Fairness is a consistent schedule based on business needs. Your personal feelings do not change the definition of fairness. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate scoffs. 'Fairness is a consistent schedule based on business needs. Your personal feelings do not change the definition of fairness.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3c: {
-            text: "Nate taps his temple. 'The type of work is also tracked. If you have an issue with your job description, we can discuss finding a new role that better suits your abilities, like 'unemployed.' Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate taps his temple. 'While morale is a consideration, our current model is proven to maximize patient intake and care. The cost of a new scheduling system and the potential for reduced coverage outweighs the hypothetical gains.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3d: {
-            text: "Nate holds up a hand. 'Everyone needs a break. The schedule includes a break. Your feeling that you 'need' more is not a valid business concern. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate holds up a hand. 'I am not interested in the business practices of our competitors. I am concerned with our business. Is there anything else?'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
+        },
+        schedule_3e: {
+            text: "Nate sighs. 'The type of work is also tracked. If you have an issue with your job description, we can discuss finding a new role that better suits your abilities, like 'unemployed.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
+        },
+        schedule_3f: {
+            text: "Nate holds up a hand. 'Everyone needs a break. The schedule includes a break. Your feeling that you 'need' more is not a valid business concern.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         // --- PROTOCOL BRANCH ---
         protocol_1: {
@@ -146,20 +162,20 @@
             ]
         },
         protocol_3a: {
-            text: "Nate's eyes narrow. 'Dangerous? The legal department has already signed off. If you feel this way, you are welcome to find a clinic that better suits your personal feelings. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate's eyes narrow. 'Dangerous? The legal department has already signed off. If you feel this way, you are welcome to find a clinic that better suits your personal feelings.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         protocol_3b: {
-            text: "Nate laughs. 'Liability is a matter for the lawyers. You are a technician, not a legal expert. Focus on your job. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate laughs. 'Liability is a matter for the lawyers. You are a technician, not a legal expert. Focus on your job.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         protocol_3c: {
-            text: "Nate shakes his head slowly. 'What is 'best' is a subjective opinion. The protocol is what is best for the clinic's long-term sustainability. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate shakes his head slowly. 'What is 'best' is a subjective opinion. The protocol is what is best for the clinic's long-term sustainability.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         protocol_3d: {
-            text: "Nate leans forward. 'Humane? Are you suggesting the current protocol is inhumane? That's a serious accusation. Is there anything else you'd like to say before we document this conversation? Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate leans forward. 'Humane? Are you suggesting the current protocol is inhumane? That's a serious accusation. Is there anything else you'd like to say before we document this conversation?'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         // --- RAISE BRANCH ---
         raise_1: {
@@ -184,20 +200,20 @@
             ]
         },
         raise_3a: {
-            text: "Nate shakes his head. 'The numbers show you are incorrect. The numbers do not lie. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate shakes his head. 'The numbers show you are incorrect. The numbers do not lie.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         raise_3b: {
-            text: "Nate leans back. 'The metrics show everything that is relevant to your pay. Everything else is irrelevant. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate leans back. 'The metrics show everything that is relevant to your pay. Everything else is irrelevant.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         raise_3c: {
-            text: "Nate looks at you with a blank expression. 'Fairness is subjective. Your compensation is fair based on the market. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate looks at you with a blank expression. 'Fairness is subjective. Your compensation is fair based on the market.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         raise_3d: {
-            text: "Nate smiles thinly. 'Then feel free to apply at one of those clinics. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate smiles thinly. 'Then feel free to apply at one of those clinics.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         // --- COWORKER BRANCH ---
         coworker_1: {
@@ -222,21 +238,27 @@
             ]
         },
         coworker_3a: {
-            text: "Nate sighs. 'Your coworker's productivity is my concern, not yours. Your job is to complete your tasks. If you are not doing that, we will have another conversation. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate sighs. 'Your coworker's productivity is my concern, not yours. Your job is to complete your tasks. If you are not doing that, we will have another conversation.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         coworker_3b: {
-            text: "Nate nods slowly. 'Thank you for your dedication. If the clinic is running smoothly, then there is no issue. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate nods slowly. 'Thank you for your dedication. If the clinic is running smoothly, then there is no issue.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         coworker_3c: {
-            text: "Nate leans back. 'Rude comments? I will consider this when a formal HR complaint is filed. Is that what you are doing now?' Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate leans back. 'Rude comments? I will consider this when a formal HR complaint is filed. Is that what you are doing now?'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         coworker_3d: {
-            text: "Nate shakes his head. 'Negative atmosphere? I run a business, not a social club. If you are unhappy, you are free to find another atmosphere. Just accept that Nate is right.'",
-            isEnd: true
+            text: "Nate shakes his head. 'Negative atmosphere? I run a business, not a social club. If you are unhappy, you are free to find another atmosphere.'",
+            choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
+        // --- FINAL END SCREEN ---
+        end_screen: {
+            title: "Discussion Concluded",
+            text: "Nate is right. I'll get back to work.",
+            isEnd: true
+        }
     };
 
     /**
@@ -253,16 +275,16 @@
             html += `<p class="dialogue-text">${screen.text}</p>`;
             html += `<input type="text" id="playerNameInput" class="name-input" placeholder="Your Name" />`;
             html += `<button class="btn mt-4" onclick="handleChoice('start')">${screen.choices[0].text}</button>`;
-        } else if (screen.isEnd) {
-            // Check for end screen
+        } else if (screenName === 'end_screen') {
+            // Special handling for the final end screen
             lossCount++;
             html += `<div class="paw-print">🐾</div>`;
-            html += `<h1 class="title">The Final Word</h1>`;
+            html += `<h1 class="title">${screen.title}</h1>`;
             html += `<p class="dialogue-text">${screen.text.replace('{playerName}', playerName)}</p>`;
             html += `<div class="text-gray-500 font-bold mt-4">Arguments Lost: ${lossCount}</div>`;
             html += `<button class="btn mt-4" onclick="handleChoice('start')">Try Again</button>`;
         } else {
-            // Handle regular game screens
+            // Handle regular game screens and the final 'Just accept that Nate is right' button screen
             html += `<div class="paw-print">🐾</div>`;
             html += `<h1 class="title">${screen.title || gameData.start.title}</h1>`;
             html += `<p class="dialogue-text">${screen.text.replace('{playerName}', playerName)}</p>`;
