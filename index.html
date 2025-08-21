@@ -87,90 +87,90 @@
         },
         // --- SCHEDULE BRANCH ---
         schedule_1: {
-            text: "Nate leans back in his chair. 'The schedule reflects our operational needs. We operate from 8 AM to 6 PM, Monday through Friday, and from 8 AM to 1 PM on Saturdays. What is your specific complaint?'",
+            text: "Nate leans back in his chair. 'So, the schedule. It's built around our operational needs. We're open from 8 AM to 6 PM, Monday through Friday, and from 8 AM to 1 PM on Saturdays. What seems to be the problem?'",
             choices: [
                 { text: "I always get stuck with the closing shift.", next: "schedule_2a" },
                 { text: "The current system doesn't account for individual needs.", next: "schedule_2b" },
-                { text: "The rotations are not evenly distributed among staff.", next: "schedule_2c" }
+                { text: "The rotations aren't evenly distributed among staff.", next: "schedule_2c" }
             ]
         },
         schedule_2a: {
-            text: "Nate gestures to a chart on his wall. 'Closing shifts are assigned on a rotating roster. It seems you just don't like when your turn comes up. Is there something about the rotation that's unclear?'",
+            text: "Nate gestures to a chart on his wall. 'Closing shifts are on a rotating roster. It seems like it's just your turn. Is there something about the rotation that's unclear to you?'",
             choices: [
                 { text: "But I have personal commitments in the evening.", next: "schedule_3a" },
                 { text: "That doesn't feel very 'fair' to me.", next: "schedule_3b" }
             ]
         },
         schedule_2b: {
-            text: "Nate points to the clock. 'Individual needs are not a factor in a schedule built for our high-volume operational hours. What is your business-related reason for this discussion?'",
+            text: "Nate points to the clock. 'Look, individual needs don't really factor into a schedule built for our high-volume hours. What's the business reason for this discussion?'",
             choices: [
                 { text: "Flexible scheduling increases morale and productivity.", next: "schedule_3c" },
                 { text: "Other clinics offer more flexible scheduling.", next: "schedule_3d" }
             ]
         },
         schedule_2c: {
-            text: "Nate pulls up a spreadsheet. 'The data shows an even distribution of all shifts over a six-month period. If you feel it's uneven, I can show you the raw data. Is there a discrepancy you've found?'",
+            text: "Nate pulls up a spreadsheet. 'I've looked at the data, and all shifts are distributed evenly over a six-month period. If you think it's uneven, I can show you the raw numbers. Found a discrepancy?'",
             choices: [
                 { text: "It's about the type of work, not the hours!", next: "schedule_3e" },
                 { text: "I feel like I'm doing more work than everyone else.", next: "schedule_3f" }
             ]
         },
         schedule_3a: {
-            text: "Nate's expression hardens. 'This is a business, not a hobby. Your personal life is not my responsibility. My job is to ensure the clinic runs.'",
+            text: "Nate's expression hardens. 'This is a business, not a hobby. Your personal life isn't my responsibility. My job is to make sure the clinic runs.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3b: {
-            text: "Nate scoffs. 'Fairness is a consistent schedule based on business needs. Your personal feelings do not change the definition of fairness.'",
+            text: "Nate scoffs. 'Fairness is a consistent schedule based on business needs. Your personal feelings don't change that.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3c: {
-            text: "Nate taps his temple. 'While morale is a consideration, our current model is proven to maximize patient intake and care. The cost of a new scheduling system and the potential for reduced coverage outweighs the hypothetical gains.'",
+            text: "Nate taps his temple. 'Morale is a consideration, but our current model maximizes patient intake and care. The cost of a new system outweighs any hypothetical gains.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3d: {
-            text: "Nate holds up a hand. 'I am not interested in the business practices of our competitors. I am concerned with our business. Is there anything else?'",
+            text: "Nate holds up a hand. 'I'm not interested in how our competitors run their business. I'm concerned with ours. Anything else?'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3e: {
-            text: "Nate sighs. 'The type of work is also tracked. If you have an issue with your job description, we can discuss finding a new role that better suits your abilities, like 'unemployed.'",
+            text: "Nate sighs. 'The type of work is also tracked. If you have an issue with your job description, we can talk about finding a new role that better suits your abilities—like 'unemployed.''",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         schedule_3f: {
-            text: "Nate holds up a hand. 'Everyone needs a break. The schedule includes a break. Your feeling that you 'need' more is not a valid business concern.'",
+            text: "Nate holds up a hand. 'Everyone gets a break. Your feeling that you 'need' more isn't a valid business concern.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         // --- PROTOCOL BRANCH ---
         protocol_1: {
-            text: "Nate stares at you, unblinking. 'The protocol was developed to ensure the highest standard of care while maximizing efficiency. Compassionate care is about seeing as many patients as possible. What is your specific issue?'",
+            text: "Nate stares at you, unblinking. 'The protocol was developed to ensure the highest standard of care while maximizing efficiency. Compassionate care is about seeing as many patients as possible. What's the issue here?'",
             choices: [
                 { text: "It's too rushed, we're making mistakes.", next: "protocol_2a" },
                 { text: "It seems to be causing patient distress.", next: "protocol_2b" }
             ]
         },
         protocol_2a: {
-            text: "Nate pulls out a tablet. 'The error rate has decreased by 2% since implementation. It sounds like you are still getting up to speed. What part of the protocol is confusing you?'",
+            text: "Nate pulls out a tablet. 'The error rate has actually decreased by 2% since we started this. It sounds like you're just getting up to speed. What part of the protocol is confusing you?'",
             choices: [
                 { text: "It's not confusing, it's dangerous!", next: "protocol_3a" },
                 { text: "I'm worried about liability.", next: "protocol_3b" }
             ]
         },
         protocol_2b: {
-            text: "Nate looks unimpressed. 'Patient distress is a natural byproduct of medical procedures. We cannot compromise efficiency for an animal's temporary discomfort. Are you suggesting we prioritize emotional labor over time-sensitive procedures?'",
+            text: "Nate looks unimpressed. 'Patient distress is a natural byproduct of medical procedures. We can't compromise efficiency for a temporary discomfort. Are you suggesting we prioritize emotions over time-sensitive procedures?'",
             choices: [
                 { text: "But that's not what's best for the animals.", next: "protocol_3c" },
                 { text: "We need to be more humane.", next: "protocol_3d" }
             ]
         },
         protocol_3a: {
-            text: "Nate's eyes narrow. 'Dangerous? This protocol has been approved by the board and is consistent with industry standards. If you feel this way, you are welcome to find a clinic that better suits your personal feelings.'",
+            text: "Nate's eyes narrow. 'Dangerous? This protocol has been approved by the board and is consistent with industry standards. If you feel this way, you're welcome to find a clinic that better suits your personal feelings.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         protocol_3b: {
-            text: "Nate laughs. 'Liability is a matter for the lawyers. You are a technician, not a legal expert. Focus on your job.'",
+            text: "Nate laughs. 'Liability is a matter for the lawyers. You're a technician, not a legal expert. Focus on your job.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         protocol_3c: {
-            text: "Nate shakes his head slowly. 'What is 'best' is a subjective opinion. The protocol is what is best for the clinic's long-term sustainability.'",
+            text: "Nate shakes his head slowly. 'What's 'best' is a subjective opinion. This protocol is what's best for the clinic's long-term sustainability.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         protocol_3d: {
@@ -179,32 +179,32 @@
         },
         // --- RAISE BRANCH ---
         raise_1: {
-            text: "Nate lets out a short, humorless laugh. 'Raises are based on performance metrics that you have not met. The clinic's financial model is sound, and your compensation is fair according to industry standards. What makes you think you deserve a raise?'",
+            text: "Nate lets out a short, humorless laugh. 'Raises are based on performance metrics, and you haven't met them. Our financial model is sound, and your compensation is fair by industry standards. What makes you think you deserve a raise?'",
             choices: [
                 { text: "My years of experience and dedication.", next: "raise_2a" },
                 { text: "The cost of living has gone up.", next: "raise_2b" }
             ]
         },
         raise_2a: {
-            text: "Nate points to a file. 'Experience and dedication are requirements of the job, not reasons for a raise. Your performance review shows an average output. Are you claiming your metrics are wrong?'",
+            text: "Nate points to a file. 'Experience and dedication are requirements of the job, not reasons for a raise. Your performance review shows an average output. Are you saying your metrics are wrong?'",
             choices: [
                 { text: "I'm performing at a high level!", next: "raise_3a" },
                 { text: "Performance metrics don't show everything.", next: "raise_3b" }
             ]
         },
         raise_2b: {
-            text: "Nate shrugs. 'The cost of living is a macroeconomic issue, not a business concern. Our compensation is based on your job function, not your personal financial situation. Do you have a business-related reason for this conversation?'",
+            text: "Nate shrugs. 'The cost of living is a macroeconomic issue, not a business concern for us. Your pay is based on your job function, not your personal financial situation. Do you have a business-related reason for this conversation?'",
             choices: [
                 { text: "It's about fair compensation for my work.", next: "raise_3c" },
                 { text: "Other clinics are paying more.", next: "raise_3d" }
             ]
         },
         raise_3a: {
-            text: "Nate shakes his head. 'The numbers show you are incorrect. The numbers do not lie.'",
+            text: "Nate shakes his head. 'The numbers show you're incorrect. The numbers don't lie.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         raise_3b: {
-            text: "Nate leans back. 'The metrics show everything that is relevant to your pay. Everything else is irrelevant.'",
+            text: "Nate leans back. 'The metrics show everything that's relevant to your pay. Everything else is irrelevant.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         raise_3c: {
@@ -217,14 +217,14 @@
         },
         // --- COWORKER BRANCH ---
         coworker_1: {
-            text: "Nate signs a document without looking up. 'The issue with your coworker is a personal matter. We are a family here, and I expect you to resolve this with your fellow family member. What is the specific issue?'",
+            text: "Nate signs a document without looking up. 'Look, the issue with your coworker is a personal matter. We're a family here, and I expect you to resolve this with your fellow family member. What exactly is the issue?'",
             choices: [
                 { text: "They are lazy and I'm picking up their slack.", next: "coworker_2a" },
                 { text: "They are creating a toxic work environment.", next: "coworker_2b" }
             ]
         },
         coworker_2a: {
-            text: "Nate doesn't look up from his work. 'Slack? Your job is to complete your assigned tasks. If you feel you have time to take on more work, that suggests you are underutilized. Are you requesting more work?'",
+            text: "Nate doesn't look up from his work. 'Slack? Your job is to complete your assigned tasks. If you feel you have time to take on more work, that suggests you're underutilized. Are you requesting more work?'",
             choices: [
                 { text: "No, I'm saying they need to do their job!", next: "coworker_3a" },
                 { text: "I'm just trying to make the clinic run smoothly.", next: "coworker_3b" }
@@ -238,19 +238,19 @@
             ]
         },
         coworker_3a: {
-            text: "Nate sighs. 'Your coworker's productivity is my concern, not yours. Your job is to complete your tasks. If you are not doing that, we will have another conversation.'",
+            text: "Nate sighs. 'Your coworker's productivity is my concern, not yours. Your job is to complete your tasks. If you're not doing that, we'll have another conversation.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         coworker_3b: {
-            text: "Nate nods slowly. 'Thank you for your dedication. If the clinic is running smoothly, then there is no issue.'",
+            text: "Nate nods slowly. 'Thank you for your dedication. If the clinic is running smoothly, then there's no issue.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         coworker_3c: {
-            text: "Nate leans back. 'Rude comments? I will consider this when a formal HR complaint is filed. Is that what you are doing now?'",
+            text: "Nate leans back. 'Rude comments? I'll consider this when a formal HR complaint is filed. Is that what you're doing now?'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         coworker_3d: {
-            text: "Nate shakes his head. 'Negative atmosphere? I run a business, not a social club. If you are unhappy, you are free to find another atmosphere.'",
+            text: "Nate shakes his head. 'Negative atmosphere? I run a business, not a social club. If you're unhappy, you're free to find another atmosphere.'",
             choices: [{ text: "Just accept that Nate is right.", next: "end_screen" }]
         },
         // --- FINAL END SCREEN ---
